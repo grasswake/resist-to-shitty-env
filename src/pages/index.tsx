@@ -1,9 +1,13 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "@/styles/page.module.css";
+import { MainLayout } from "@/components/layouts";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <MainLayout>
+      <h1>
+        Welcome to <a href="https://nextjs.org">Next.js!</a>
+      </h1>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
@@ -15,7 +19,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -90,6 +94,19 @@ export default function Home() {
           </p>
         </a>
       </div>
-    </main>
-  )
+
+      <footer>
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by{" "}
+          <span>
+            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+          </span>
+        </a>
+      </footer>
+    </MainLayout>
+  );
 }
