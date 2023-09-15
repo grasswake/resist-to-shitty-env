@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "@/styles/page.module.css";
 import { MainLayout } from "@/components/layouts";
 
@@ -8,6 +9,7 @@ export default function Home() {
       <h1>
         Welcome to <a href="https://nextjs.org">Next.js!</a>
       </h1>
+
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
@@ -44,6 +46,11 @@ export default function Home() {
       </div>
 
       <div className={styles.grid}>
+        <Link href="/about" className={styles.card}>
+          <h2>About Page &rarr;</h2>
+          <p>Playwright will test if this link is working.</p>
+        </Link>
+
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
