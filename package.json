@@ -18,7 +18,7 @@
     "snapshot:build": "npm run build-storybook",
     "snapshot:ci:": "storycap --serverCmd \"npx http-server dist-storybook -p 6006\" http://127.0.0.1:6006 -o __actual__",
     "vrt": "reg-cli __actual__ __current__ __diff__ -R vrt_report.html",
-    "vrt:ok": "rm -rf __current__ && mv __actual__ __current__ && rm -rf __diff__"
+    "vrt:ok": "rm -rf __current__ && mv __actual__ __current__"
   },
   "eslintIgnore": [
     "/node_modules"
