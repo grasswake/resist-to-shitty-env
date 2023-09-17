@@ -11,7 +11,14 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
-    "test:e2e:update": "playwright test --update-snapshots"
+    "test:e2e:update": "playwright test --update-snapshots",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o dist-storybook",
+    "snapshot": "run-s snapshot:*",
+    "snapshot:build": "npm run build-storybook",
+    "snapshot:ci:": "storycap --serverCmd \"npx http-server dist-storybook -p 6006\" http://127.0.0.1:6006 -o __current__",
+    "vrt": "reg-cli __current__ __latest__ __diff__ -R vrt_report.html",
+    "vrt:ok": "rm -rf __latest__ && mv __current__ __latest__ && rm -rf __diff__"
   },
   "eslintIgnore": [
     "/node_modules"
@@ -29,6 +36,14 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.38.0",
+    "@storybook/addon-essentials": "^7.4.2",
+    "@storybook/addon-interactions": "^7.4.2",
+    "@storybook/addon-links": "^7.4.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.2",
+    "@storybook/nextjs": "^7.4.2",
+    "@storybook/react": "^7.4.2",
+    "@storybook/testing-library": "^0.2.1",
     "@testing-library/jest-dom": "^6.1.3",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
@@ -36,8 +51,13 @@
     "@vitejs/plugin-react": "^4.0.4",
     "@vitest/coverage-istanbul": "^0.34.4",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-storybook": "^0.6.13",
     "happy-dom": "^11.0.6",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.0.3",
+    "reg-cli": "^0.17.7",
+    "storybook": "^7.4.2",
+    "storycap": "^4.2.0",
     "vite-tsconfig-paths": "^4.2.1",
     "vitest": "^0.34.4"
   }
