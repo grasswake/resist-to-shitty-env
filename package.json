@@ -16,9 +16,9 @@
     "build-storybook": "storybook build -o dist-storybook",
     "snapshot": "run-s snapshot:*",
     "snapshot:build": "npm run build-storybook",
-    "snapshot:ci:": "storycap --serverCmd \"npx http-server dist-storybook -p 6006\" http://127.0.0.1:6006 -o __current__",
-    "vrt": "reg-cli __current__ __latest__ __diff__ -R vrt_report.html",
-    "vrt:ok": "rm -rf __latest__ && mv __current__ __latest__ && rm -rf __diff__"
+    "snapshot:ci:": "storycap --serverCmd \"npx http-server dist-storybook -p 6006\" http://127.0.0.1:6006 -o __actual__",
+    "vrt": "reg-cli __actual__ __current__ __diff__ -R vrt_report.html",
+    "vrt:ok": "rm -rf __current__ && mv __actual__ __current__ && rm -rf __diff__"
   },
   "eslintIgnore": [
     "/node_modules"
@@ -55,6 +55,7 @@
     "happy-dom": "^11.0.6",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.3",
+    "puppeteer": "^21.2.1",
     "reg-cli": "^0.17.7",
     "storybook": "^7.4.2",
     "storycap": "^4.2.0",

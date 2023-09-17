@@ -15,6 +15,16 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    screenshot: {
+      variants: {
+        small: {
+          viewport: "iPhone SE",
+        },
+        large: {
+          viewport: "Nexus 7",
+        },
+      },
+    },
   },
 };
 
