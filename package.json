@@ -6,8 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "run-s lint:*",
+    "lint:next": "next lint && prettier --check .",
+    "lint:style": "stylelint **/*.{css,scss}",
     "format": "prettier --write .",
-    "lint": "next lint",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
@@ -18,7 +20,8 @@
     "snapshot:build": "npm run build-storybook",
     "snapshot:ci:": "storycap --serverCmd \"npx http-server dist-storybook -p 6006\" http://127.0.0.1:6006 -o __actual__",
     "vrt": "reg-cli __actual__ __current__ __diff__ -R vrt_report.html",
-    "vrt:ok": "rm -rf __current__ && mv __actual__ __current__"
+    "vrt:ok": "rm -rf __current__ && mv __actual__ __current__",
+    "prepare": "husky install"
   },
   "eslintIgnore": [
     "/node_modules"
@@ -28,10 +31,11 @@
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "eslint": "8.49.0",
-    "eslint-config-next": "13.4.19",
-    "next": "13.4.19",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "eslint-config-next": "^13.4.19",
+    "mermaid": "^10.4.0",
+    "next": "^13.4.19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "5.2.2"
   },
   "devDependencies": {
@@ -48,18 +52,32 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/testing-library__jest-dom": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
     "@vitejs/plugin-react": "^4.0.4",
     "@vitest/coverage-istanbul": "^0.34.4",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-storybook": "^0.6.13",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "happy-dom": "^11.0.6",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.3",
     "puppeteer": "^21.2.1",
     "reg-cli": "^0.17.7",
+    "sass": "^1.67.0",
     "storybook": "^7.4.2",
     "storycap": "^4.2.0",
+    "stylelint": "^15.10.3",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-recess-order": "^4.3.0",
+    "stylelint-config-standard-scss": "^11.0.0",
     "vite-tsconfig-paths": "^4.2.1",
     "vitest": "^0.34.4"
+  },
+  "lint-staged": {
+    "*.{tsx,ts}": "npm run lint:next",
+    "*.{css,scss}": "npm run lint:style"
   }
 }

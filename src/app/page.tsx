@@ -1,11 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
-import styles from "@/styles/page.module.css";
-import { MainLayout } from "@/components/layouts";
+import Image from 'next/image'
+import Link from 'next/link'
 
-export default function Home() {
+import styles from '@/styles/page.module.scss'
+
+export default function Page() {
   return (
-    <MainLayout>
+    <>
       <h1>
         Welcome to <a href="https://nextjs.org">Next.js!</a>
       </h1>
@@ -21,7 +21,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{" "}
+            By{' '}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -108,12 +108,12 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{" "}
+          Powered by{' '}
           <span>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
-    </MainLayout>
-  );
+    </>
+  )
 }

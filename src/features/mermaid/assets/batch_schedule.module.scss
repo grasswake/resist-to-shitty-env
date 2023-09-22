@@ -1,0 +1,23 @@
+/* stylelint-disable selector-class-pattern */
+.mermaid-container {
+  .mermaid {
+    font-family: 'trebuchet ms', verdana, arial, sans-serif;
+  }
+
+  :global {
+    #mermaid .grid .tick {
+      opacity: 0.3;
+      stroke: red;
+      shape-rendering: crispedges;
+    }
+
+    #mermaid .grid path {
+      stroke-width: 0;
+    }
+
+    #mermaid text.taskText.clickable {
+      text-anchor: middle;
+      fill: black !important;
+    }
+  }
+}

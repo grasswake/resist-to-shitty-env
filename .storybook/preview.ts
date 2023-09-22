@@ -1,14 +1,14 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from '@storybook/react'
 
-import { withScreenshot } from "storycap";
+import { withScreenshot } from 'storycap'
 
 export const decorators = [
   withScreenshot, // Registration the decorator is required
-];
+]
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -18,14 +18,14 @@ const preview: Preview = {
     screenshot: {
       variants: {
         small: {
-          viewport: "iPhone SE",
+          viewport: 'iPhone SE',
         },
         large: {
-          viewport: "Nexus 7",
+          viewport: 'Nexus 7',
         },
       },
     },
   },
-};
+}
 
-export default preview;
+export default preview

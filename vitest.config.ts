@@ -1,22 +1,22 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
-import react from "@vitejs/plugin-react";
-import tsconfigPaths from "vite-tsconfig-paths";
-import { defineConfig } from "vitest/config";
-import path from "path";
+import react from '@vitejs/plugin-react'
+import tsconfigPaths from 'vite-tsconfig-paths'
+import { defineConfig } from 'vitest/config'
+import path from 'path'
 
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   test: {
     globals: true,
-    environment: "happy-dom",
-    setupFiles: ["./test/setup-test-env.ts"],
-    include: ["./src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-    watchExclude: [".*\\/node_modules\\/.*", ".*\\/build\\/.*"],
+    environment: 'happy-dom',
+    setupFiles: ['./test/setup-test-env.ts'],
+    include: ['./src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    watchExclude: ['.*\\/node_modules\\/.*', '.*\\/build\\/.*'],
     coverage: {
-      provider: "istanbul",
-      reporter: ["text", "json", "html"],
+      provider: 'istanbul',
+      reporter: ['text', 'json', 'html'],
     },
   },
   // resolve: {
@@ -27,4 +27,4 @@ export default defineConfig({
   //     ),
   //   },
   // },
-});
+})

@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-recess-order",
+    "stylelint-config-prettier-scss"
+  ],
+  "ignoreFiles": ["dist-storybook/**/*.css", "src/stories/**/*.css"],
+  "rules": {
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ]
+  }
+}
