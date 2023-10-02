@@ -8,6 +8,9 @@ export const decorators = [
 
 const preview: Preview = {
   parameters: {
+    nextjs: {
+      appDirectory: true,
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
@@ -16,6 +19,7 @@ const preview: Preview = {
       },
     },
     screenshot: {
+      fullPage: false,
       variants: {
         small: {
           viewport: 'iPhone SE',

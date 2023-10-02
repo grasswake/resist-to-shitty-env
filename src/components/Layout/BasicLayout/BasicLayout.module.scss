@@ -1,0 +1,17 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.sider {
+  position: fixed;
+  top: 64;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  overflow: auto;
+}

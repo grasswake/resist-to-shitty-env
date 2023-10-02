@@ -4,7 +4,11 @@
     "stylelint-config-recess-order",
     "stylelint-config-prettier-scss"
   ],
-  "ignoreFiles": ["dist-storybook/**/*.css", "src/stories/**/*.css"],
+  "ignoreFiles": [
+    "dist-storybook/**/*.css",
+    "src/stories/**/*.css",
+    "coverage/**/*.css"
+  ],
   "rules": {
     "selector-pseudo-class-no-unknown": [
       true,
