@@ -1,8 +1,11 @@
-import { userEvent } from '@storybook/testing-library'
+import React from 'react'
+
+import { FileMarkdownOutlined } from '@ant-design/icons'
 import { Layout } from 'antd'
 
 import { BasicSider } from './BasicSider'
 
+import type { MenuItems } from '@/types'
 import type { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/Sider/BasicSider',
@@ -22,13 +25,30 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+const menuItems: MenuItems = [
+  {
+    key: 'mermaid',
+    icon: React.createElement(FileMarkdownOutlined),
+    label: `Mermaid`,
 
-export const Close: Story = {
-  play: async ({ canvasElement }) => {
-    const el = canvasElement.getElementsByClassName(
-      'ant-layout-sider-trigger'
-    )[0]
-    await userEvent.click(el)
+    children: [
+      {
+        key: 'batch_schedule',
+        label: 'Batch Schedule',
+      },
+    ],
+  },
+]
+
+export const Default: Story = {
+  args: {
+    menuItems,
+  },
+}
+
+export const DefaultCollapsed: Story = {
+  args: {
+    menuItems,
+    defaultCollapsed: true,
   },
 }

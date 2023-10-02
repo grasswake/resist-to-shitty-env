@@ -1,45 +1,28 @@
 'use client'
 import React from 'react'
 
-import { FileMarkdownOutlined } from '@ant-design/icons'
 import { Layout, Menu } from 'antd'
-import { useRouter } from 'next/navigation'
 
 import { useCollapsed } from '@/hooks'
 
 import styles from './BasicSider.module.scss'
 
-import type { MenuProps } from 'antd'
-
 const { Sider } = Layout
 
-export const BasicSider = () => {
-  const { collapsed, collapse } = useCollapsed()
-  const router = useRouter()
+import type { MenuItems, MenuClickEventHandler } from '@/types'
 
-  const menuItems: MenuProps['items'] = React.useMemo(
-    () => [
-      {
-        key: 'mermaid',
-        icon: React.createElement(FileMarkdownOutlined),
-        label: `Mermaid`,
+export type BasicSiderProps = {
+  defaultCollapsed?: boolean
+  menuItems: MenuItems
+  onMenuClick?: MenuClickEventHandler
+}
 
-        children: [
-          {
-            key: 'batch_schedule',
-            label: 'Batch Schedule',
-          },
-        ],
-      },
-    ],
-    []
-  )
-
-  const handleMenuClick: NonNullable<MenuProps['onClick']> = (
-    info: Parameters<NonNullable<MenuProps['onClick']>>[0]
-  ) => {
-    router.push(`/batch/${info.key}`)
-  }
+export const BasicSider = ({
+  defaultCollapsed,
+  menuItems,
+  onMenuClick,
+}: BasicSiderProps) => {
+  const { collapsed, collapse } = useCollapsed(defaultCollapsed)
 
   return (
     <Sider
@@ -49,11 +32,10 @@ export const BasicSider = () => {
       className={styles.sider}
     >
       <Menu
-        data-testid="custom-element"
         theme="dark"
         mode="inline"
-        items={menuItems}
-        onClick={handleMenuClick}
+        items={React.useMemo(() => menuItems, [menuItems])}
+        onClick={onMenuClick}
       />
     </Sider>
   )

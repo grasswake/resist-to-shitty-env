@@ -1,3 +1,4 @@
-import { BasicSider } from './BasicSider'
+import { BasicSider, BasicSiderProps } from './BasicSider'
 
 export { BasicSider }
+export type { BasicSiderProps }
