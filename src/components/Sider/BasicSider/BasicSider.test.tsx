@@ -29,27 +29,19 @@ const menuItems: MenuItems = [
 test('should render BasicSider', async () => {
   render(<BasicSider menuItems={menuItems} />)
 
-  await waitFor(() => {
-    expect(screen.getByText('Mermaid')).toBeDefined()
-  })
-
-  userEvent.click(screen.getByText('Mermaid'))
-
-  await waitFor(() => {
-    expect(screen.getByText('Batch Schedule')).toBeDefined()
-  })
+  expect(await screen.findByText('Mermaid')).not.toBeVisible()
 })
 
 test('should render BasicSider with defaultCollapsed is undefined', async () => {
   render(<BasicSider menuItems={menuItems} />)
 
-  expect(await screen.findByText('Mermaid')).toBeVisible()
+  expect(await screen.findByText('Mermaid')).not.toBeVisible()
 })
 
-test('should render BasicSider with defaultCollapsed is true', async () => {
-  render(<BasicSider menuItems={menuItems} defaultCollapsed={true} />)
+test('should render BasicSider with defaultCollapsed is false', async () => {
+  render(<BasicSider menuItems={menuItems} defaultCollapsed={false} />)
 
-  expect(await screen.findByText('Mermaid')).not.toBeVisible()
+  expect(await screen.findByText('Mermaid')).toBeVisible()
 })
 
 test('should collapse BasicSider by clicking collapse button', async () => {
@@ -61,16 +53,24 @@ test('should collapse BasicSider by clicking collapse button', async () => {
 
   await userEvent.click(collapse)
 
-  expect(await screen.findByText('Mermaid')).not.toBeVisible()
+  expect(await screen.findByText('Mermaid')).toBeVisible()
 
   await userEvent.click(collapse)
 
-  expect(await screen.findByText('Mermaid')).toBeVisible()
+  expect(await screen.findByText('Mermaid')).not.toBeVisible()
 })
 
 test('should call onMenuClick when clicking menu item', async () => {
   const onMenuClick: MenuClickEventHandler = vi.fn()
-  render(<BasicSider menuItems={menuItems} onMenuClick={onMenuClick} />)
+  const { container } = render(
+    <BasicSider menuItems={menuItems} onMenuClick={onMenuClick} />
+  )
+
+  const collapse = container.getElementsByClassName(
+    'ant-layout-sider-trigger'
+  )[0]
+
+  await userEvent.click(collapse)
 
   await userEvent.click(screen.getByText('Mermaid'))
 

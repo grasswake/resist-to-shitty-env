@@ -64,6 +64,7 @@ export const MermaidView = ({ fileName }: MermaidViewProps) => {
 
   return (
     <Mermaid
+      fileName={fileName}
       content={mermaidContent.content}
       setEventListenersToWindow={setEventListenersToWindow}
       styleSheet={styleSheet}

@@ -49,6 +49,6 @@ export const Default: Story = {
 export const DefaultCollapsed: Story = {
   args: {
     menuItems,
-    defaultCollapsed: true,
+    defaultCollapsed: false,
   },
 }

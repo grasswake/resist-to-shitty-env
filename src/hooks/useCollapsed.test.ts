@@ -6,18 +6,6 @@ import { useCollapsed } from './useCollapsed'
 test('should collapsed the state', () => {
   const { result } = renderHook(() => useCollapsed())
 
-  expect(result.current.collapsed).toBe(false)
-
-  act(() => {
-    result.current.collapse(true, 'clickTrigger')
-  })
-
-  expect(result.current.collapsed).toBe(true)
-})
-
-test('should define initial state', () => {
-  const { result } = renderHook(() => useCollapsed(true))
-
   expect(result.current.collapsed).toBe(true)
 
   act(() => {
@@ -25,4 +13,16 @@ test('should define initial state', () => {
   })
 
   expect(result.current.collapsed).toBe(false)
+})
+
+test('should define initial state', () => {
+  const { result } = renderHook(() => useCollapsed(false))
+
+  expect(result.current.collapsed).toBe(false)
+
+  act(() => {
+    result.current.collapse(true, 'clickTrigger')
+  })
+
+  expect(result.current.collapsed).toBe(true)
 })

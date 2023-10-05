@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { CollapseType } from 'antd/es/layout/Sider'
 
-export const useCollapsed = (initial: boolean = false) => {
+export const useCollapsed = (initial: boolean = true) => {
   const [collapsed, setCollapsed] = React.useState(initial)
 
   const collapse = React.useCallback(

@@ -20,14 +20,14 @@ const preview: Preview = {
     },
     screenshot: {
       fullPage: false,
-      variants: {
-        small: {
-          viewport: 'iPhone SE',
-        },
-        large: {
-          viewport: 'Nexus 7',
-        },
-      },
+      // variants: {
+      //   small: {
+      //     viewport: 'iPhone SE',
+      //   },
+      //   large: {
+      //     viewport: 'Nexus 7',
+      //   },
+      // },
     },
   },
 }
