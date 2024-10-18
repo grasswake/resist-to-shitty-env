@@ -41,7 +41,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "@playwright/test": "1.38.0",
+    "@playwright/test": "1.48.1",
     "@storybook/addon-essentials": "7.4.2",
     "@storybook/addon-interactions": "7.4.2",
     "@storybook/addon-links": "7.4.2",
